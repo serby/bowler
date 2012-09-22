@@ -4,8 +4,6 @@
  */
 
 var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
   , http = require('http')
   , path = require('path');
 
@@ -27,9 +25,10 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/', routes.index);
-app.get('/users', user.list);
+app.get('/', function(req, res) {
+  res.render('index', { title: 'Express' });
+});
 
 http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port http://localhost:" + app.get('port'));
+  console.log('Express server listening on port http://localhost:' + app.get('port'));
 });
