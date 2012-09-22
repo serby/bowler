@@ -1,15 +1,12 @@
 {
-  "author": "Paul Serby <paul@serby.net>",
-  "name": "bowler",
-  "version": "0.0.0",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/serby/bowler.git"
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app"
   },
   "dependencies": {
-    "express": "*"
-    },
-  "engines": {
-    "node": "*"
+    "express": "3.0.0rc4",
+    "jade": "*"
   }
 }
