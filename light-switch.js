@@ -2,7 +2,7 @@ module.exports = function lightSwitch(simpleGpio, callback) {
 
   if (typeof simpleGpio === 'function') {
     callback = simpleGpio;
-    simpleGpio = require('./simple-gpio');
+    simpleGpio = require('./simple-gpio')();
   }
 
   // Which ports to use
