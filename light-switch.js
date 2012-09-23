@@ -6,7 +6,7 @@ module.exports = function lightSwitch(simpleGpio, callback) {
   }
 
   // Which ports to use
-  var gpioPorts = [0, 1, 4, 7, 8, 9]
+  var gpioPorts = [4, 17, 0]
     , ledCount = gpioPorts.length
     , led = {}
     , self = {}

@@ -1,4 +1,4 @@
-require('../light-switch')(function(lightSwitch) {
+require('./light-switch')(function(lightSwitch) {
 
   function sequence(callback) {
     var led = 0
