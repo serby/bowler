@@ -1,8 +1,8 @@
-module.exports = function lightSwitch(gpio, callback) {
+module.exports = function lightSwitch(simpleGpio, callback) {
 
-  if (typeof gpio === 'function') {
-    callback = gpio;
-    gpio = require('gpio');
+  if (typeof simpleGpio === 'function') {
+    callback = simpleGpio;
+    simpleGpio = require('simple-gpio');
   }
 
   // Which ports to use
@@ -14,13 +14,13 @@ module.exports = function lightSwitch(gpio, callback) {
     ;
 
   function on(n) {
-    led[n].gpio.set();
+    simpleGpio.set(led[n], 1);
     led[n].on = true;
     return self;
   }
 
   function off(n) {
-    led[n].gpio.set(0);
+    simpleGpio.set(led[n], 0);
     led[n].on = false;
     return self;
   }
@@ -81,19 +81,16 @@ module.exports = function lightSwitch(gpio, callback) {
 
   // Init the GPIO and return the light switch
   gpioPorts.forEach(function(gpioNumber) {
-    var g = gpio.export(gpioNumber, {
-      ready: function() {
-        led[ledNumber] = {
-          gpio: g,
-          on: false
-        };
-        // Ensure they are all off
-        g.set(0);
+    simpleGpio.export(gpioNumber, function() {
+      led[ledNumber] = gpioNumber;
+      // Ensure they are all off
+      simpleGpio.setDirection(gpioNumber, function() {
+        simpleGpio.set(gpioNumber, 0);
+      });
 
-        ledNumber += 1;
-        if (ledNumber === ledCount) {
-          callback(self);
-        }
+      ledNumber += 1;
+      if (ledNumber === ledCount) {
+        callback(self);
       }
     });
   });
