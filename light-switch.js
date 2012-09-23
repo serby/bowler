@@ -84,7 +84,7 @@ module.exports = function lightSwitch(simpleGpio, callback) {
     simpleGpio.export(gpioNumber, function() {
       led[ledNumber] = gpioNumber;
       // Ensure they are all off
-      simpleGpio.setDirection(gpioNumber, function() {
+      simpleGpio.setDirection(gpioNumber, 'out', function() {
         simpleGpio.set(gpioNumber, 0);
       });
 
