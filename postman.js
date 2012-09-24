@@ -1,13 +1,18 @@
-var os = require('os')
-  , request = require('request')
+var request = require('request')
   , properties = require('./properties')
+  , os = require('os')
+  , pulseUrl = properties.mothershipUrl + '/pulse'
+  , interval = 5000
   ;
 
 function pulse() {
-  request(properties.mothershipUrl + '/pulse', function(error) {
-    // Ignore Error
+  request.post(pulseUrl,
+    { body: JSON.stringify(os.networkInterfaces()) }, function(error, data) {
   });
 }
 
 pulse();
-setInterval(pulse, 1000);
+console.log('Setting up pulse to mothership: ' + pulseUrl + ' every ' +
+  interval + 'ms');
+
+setInterval(pulse, interval);
