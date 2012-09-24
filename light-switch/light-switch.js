@@ -1,31 +1,45 @@
-module.exports = function lightSwitch(simpleGpio, callback) {
+module.exports = function lightSwitch(simpleGpio) {
 
-  if (typeof simpleGpio === 'function') {
-    callback = simpleGpio;
+  if (simpleGpio === undefined) {
     simpleGpio = require('./simple-gpio')();
   }
 
   // Which ports to use
-  var gpioPorts = [4, 17, 0]
+  var gpioPorts = [0, 1, 4, 14, 15, 17]
     , ledCount = gpioPorts.length
     , led = {}
     , self = {}
     , ledNumber = 0
     ;
 
+  function validate(n) {
+    if (led[n] === undefined) {
+      throw new Error('Invalid led: ' + n);
+    }
+  }
+
   function on(n) {
+    if (n === undefined) {
+      return bar(1);
+    }
+    validate(n);
     simpleGpio.set(led[n], 1);
     led[n].on = true;
     return self;
   }
 
   function off(n) {
+    if (n === undefined) {
+      return bar(0);
+    }
+    validate(n);
     simpleGpio.set(led[n], 0);
     led[n].on = false;
     return self;
   }
 
   function isOn(n) {
+    validate(n);
     return led[n].on;
   }
 
@@ -41,26 +55,8 @@ module.exports = function lightSwitch(simpleGpio, callback) {
   }
 
   function progress(percentage) {
-    var c = Math.round((ledCount - 1) * percentage);
-    for (var i = 0; i < ledCount; i++) {
-      if (i === c) {
-        on(i);
-      } else {
-        off(i);
-      }
-    }
-  }
-
-  function chase() {
-
-  }
-
-  function morse(message) {
-
-  }
-
-  function bounce() {
-
+    bar(0);
+    on(Math.round((ledCount - 1) * percentage));
   }
 
   function currentState() {
@@ -81,17 +77,15 @@ module.exports = function lightSwitch(simpleGpio, callback) {
 
   // Init the GPIO and return the light switch
   gpioPorts.forEach(function(gpioNumber) {
-    simpleGpio.export(gpioNumber, function() {
-      led[ledNumber] = gpioNumber;
-      // Ensure they are all off
-      simpleGpio.setDirection(gpioNumber, 'out', function() {
-        simpleGpio.set(gpioNumber, 0);
-      });
+    simpleGpio.export(gpioNumber);
+    led[ledNumber] = gpioNumber;
 
-      ledNumber += 1;
-      if (ledNumber === ledCount) {
-        callback(self);
-      }
-    });
+    // Ensure they are all off
+    simpleGpio.setDirection(gpioNumber, 'out');
+    simpleGpio.set(gpioNumber, 0);
+
+    ledNumber += 1;
   });
+
+  return self;
 };

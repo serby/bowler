@@ -26,7 +26,7 @@ app.configure('development', function(){
 });
 
 app.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Bowler' });
 });
 
 http.createServer(app).listen(app.get('port'), function(){
