@@ -25,9 +25,8 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/', function(req, res) {
-  res.render('index', { title: 'Bowler' });
-});
+app.get('/', require('./routes/index'));
+app.get('/light-show', require('./routes/light-show'));
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port http://localhost:' + app.get('port'));
