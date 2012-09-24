@@ -6,6 +6,7 @@
     "start": "node app"
   },
   "dependencies": {
+    "lodash": "*",
     "express": "3.0.0rc4",
     "jade": "*"
   }
