@@ -1,6 +1,8 @@
 ## Features
 
-### CPU load shown on LED display
+### 2 flashes then CPU load shown on LED display for 60s
+
+### 3 flashes then binary number of twitter followers
 
 ### Disco when gets new twitter follower
 
