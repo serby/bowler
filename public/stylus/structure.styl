@@ -1,0 +1,143 @@
+.container
+  max-width 1000px
+  min-width 544px
+  position relative
+  padding 20px
+  margin 0 auto
+
+header
+  text-align center
+  background-image url("/images/separator-bg.gif")
+  background-repeat repeat-x
+  background-position 50% 100%
+  padding-bottom 5px
+  position relative
+  z-index 1
+  box-shadow 0px 5px 0px rgba(0,0,0,.2)
+
+  .container
+    background-image url("/images/header-bg.jpg")
+    background-repeat no-repeat
+    background-position 50% 100%
+
+  hgroup
+    display inline-block
+
+    h1
+      margin-bottom 10px
+
+      a
+        width 228px
+        height 188px
+        display inline-block
+        background-image url("/images/logo-bowler.png")
+        background-repeat no-repeat
+        background-position 0 0
+        text-indent 100%
+        white-space nowrap
+        overflow hidden
+
+    p
+      border-top 1px solid $primaryColor
+      padding-top 10px
+      text-transform uppercase
+      font-size 15px
+      letter-spacing 2px
+      margin-bottom 0
+
+  nav
+    position absolute
+    top 20px
+    left 20px
+    right 20px
+
+  li[class*="nav-"]
+    position absolute
+    a
+      background-image url("/images/logo-sprite.png")
+      background-repeat no-repeat
+      display block
+      text-indent 100%
+      white-space nowrap
+      overflow hidden
+
+  .nav-node
+    left 0
+    top 0
+    a
+      width 141px
+      height 38px
+      background-position 0 0
+      &:hover
+        background-position 0 -40px
+
+  .nav-raspberry
+    right 66px
+    top 0
+    a
+      width 39px
+      height 46px
+      background-position -143px 0
+      &:hover
+        background-position -143px -48px
+
+  .nav-lxjs
+    right 0
+    top -5px
+    a
+      width 56px
+      height 56px
+      background-position -184px 0
+      &:hover
+        background-position -184px -58px
+
+// Section
+section
+
+  h1
+    text-align center
+    color #fff
+
+// Cam Section
+.cam
+  background-image url("/images/london-bg.jpg")
+  background-repeat no-repeat
+  background-position 50% 50%
+  background-size cover
+  min-width 584px
+  box-shadow 0px -5px 0px rgba(0,0,0,.2) inset
+
+.cam-view
+  margin 0 auto
+  width 544px
+  padding 2px
+  border 1px solid $primaryColor
+  background-color rgba(255,255,255,.3)
+  margin-bottom 30px
+
+  #cam
+    background-color #fff
+
+p.attribution
+  font-size 12px
+  text-transform uppercase
+  color #fff
+  text-align center
+  letter-spacing 1px
+
+  a
+    display block
+    width 132px
+    height 42px
+    margin 5px auto 0
+    background-image url("/images/logo-clock.png")
+    background-position 0 0
+    background-repeat no-repeat
+    text-indent 100%
+    white-space nowrap
+    overflow hidden
+
+.unsorted
+  background-image url("/images/separator-bg.gif")
+  background-repeat repeat-x
+  background-position 50% 0

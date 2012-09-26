@@ -1,0 +1,174 @@
+/*
+ * base.css
+ * All default styles for layout and typography
+ * ============================================
+ */
+
+/*--------------------
+	Typographic Styles
+----------------------*/
+
+::-moz-selection
+	color #fff
+	background $secondaryColor
+::selection
+	color #fff
+	background $secondaryColor
+
+body
+	font-family "Lato", "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif
+	font-size 100%
+	line-height 1.5
+	font-weight 300
+	color $primaryColor
+	-webkit-font-smoothing antialiased
+
+a
+	color $secondaryColor
+	text-decoration none
+
+a:hover
+	color #333
+	text-decoration none
+
+a:focus,
+a:active
+	color #333
+	outline none
+
+h1, h2, h3, h4, h5, h6
+	font-weight 400
+	text-transform uppercase
+
+h1
+	font-size 2.375em
+	letter-spacing 4px
+h2
+	font-size 1.6em
+h3
+	font-size 1.4em
+h4
+	font-size 1.2em
+h5
+	font-size 1.1em
+h6
+	font-size 1em
+
+pre, code, kbd, style
+	font-family Monaco, "Courier New", Courier, monospace
+	font-size .875em
+pre code
+	font-size 1em
+
+blockquote
+	font-size 1.125em
+
+
+/*---------------
+	Layout Styles
+-----------------*/
+
+body
+	background-color #eae6dc
+	background-image url("/images/page-bg.gif")
+
+/* Display in IE */
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section
+	display block
+
+html, body, p, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, blockquote, th, td
+	margin 0
+	padding 0
+
+h1, h2, h3, h4, h5, h6
+	margin-bottom 0.5em
+
+p, pre, dt, ul, ol, hr, legend, input, button, textarea, select, address, table, blockquote
+	margin-bottom 1.5em
+
+fieldset, img
+	border 0
+
+img, object
+	vertical-align bottom
+
+ul li
+	list-style-type disc
+	list-style-position inside
+ol li
+	list-style-type decimal
+	list-style-position inside
+
+nav ul li
+	list-style none
+
+sub,
+sup
+	position relative
+	font-size 75%
+	line-height 0
+	vertical-align baseline
+sup
+	top -0.5em
+
+sub
+	bottom -0.25em
+
+legend
+	color #000
+	padding-bottom .5em
+
+table
+	border-collapse collapse
+	border-spacing 0
+
+th
+	text-align center
+tbody th
+	text-align left
+
+blockquote, q, em, cite, dfn, i, cite, var, address
+	font-style italic
+
+blockquote p:before, blockquote p:after, q:before, q:aftercontent ''}
+
+th, strong, dt, b
+	font-weight 400
+
+ins
+	text-decoration none
+	border-bottom 3px double #333
+
+del
+	text-decoration line-through
+
+mark
+	background-color #FF9
+	color #000000
+	font-style italic
+	font-weight bold
+
+abbr,
+acronym
+	border-bottom 1px dotted #333
+	font-variant normal
+
+dd
+	padding-left 20px
+	margin-top .5em
+
+hr
+	display block
+	height 1px
+	border 0
+	border-top 1px solid #cccccc
+	margin-right 30px
+	margin-left 30px
+
+blockquote
+	border-left 1px solid #ccc
+	padding 10px 20px 10px 39px
+	background-color #fafafa
+
+blockquote p
+	margin-bottom 0
