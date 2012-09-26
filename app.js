@@ -29,7 +29,7 @@ app.configure(function() {
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
-  app.use(express.static(path.join(__dirname, 'public'), { maxAge: 60000 }));
+  app.use(express.static(path.join(__dirname, 'public')));
 
 });
 
