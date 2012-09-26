@@ -17,7 +17,7 @@ $(function() {
     $cam.attr('src', '/images/cam.jpeg');
     setTimeout(function() {
       reloadImage();
-    }, 3000);
+    }, 1000);
   }
 
   function addBowlers() {
