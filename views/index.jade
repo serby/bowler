@@ -17,8 +17,6 @@ block content
       dt=(info.uptime/60).toPrecision(2) + 'mins'
     dd Load Avg 
       dt=info.loadAvg[0].toPrecision(3)
-    dd misc
-      dt=JSON.stringify(info)
   div.led
     h2 These flashing LEDs, what's that all about?
     p 2 flashes followed by 60 seconds of load average
