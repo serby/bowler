@@ -1,19 +1,29 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  blockquote= info
+  h1=title
+  p Node Bowler is a node.js driven bowler hat powered by Raspberry PI. 
   div.cam
     h2 Bowler Cam
+    p How do you look in a bowler?
     div.cam-view
       img#cam(src='/images/cam.jpeg', width='544', height='288')
       img.bowler(src='/images/bowler.png',width='300',height='203',style='display:none;')
+  h2 Bowler Stats
+  dl
+    dd Node Version
+      dt=info.versions.node
+    dd Uptime 
+      dt=(info.uptime/60).toPrecision(2) + 'mins'
+    dd Load Avg 
+      dt=info.loadAvg[0].toPrecision(3)
+    dd misc
+      dt=JSON.stringify(info)
   div.led
     h2 These flashing LEDs, what's that all about?
     p 2 flashes followed by 60 seconds of load average
     p 3 flashes followed by 60 seconds of twitter followers of @nodebowler
-    p Chaser new twitter follower
+    p 4 flashes new twitter follower 
   div.spec
     h2 What's in the Bowler?
     ul
@@ -25,7 +35,8 @@ block content
       li node.js 0.6.19
 
   div.twitter
-    h2 Twitter
-    p @nodebowler
+    h2 Follow the bowler
+    p Find out what the bowler hat is up to and see the best snaps by following 
+      a(href='http://twitter.com/nodebowler')@nodebowler
 
   a(href='/light-show') Trigger LEDs

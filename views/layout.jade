@@ -1,13 +1,17 @@
 doctype 5
 html
   head
-    title= title
+    title=title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     block content
 
   block script
     script(src='//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js')
+    script
+      if (typeof jQuery === 'undefined') {
+        document.write('<script src="/js/jquery-1.8.2.min.js" />');
+      }
     script(src='/js/bowler.js')
     script(src='js/facedetection/ccv.js')
     script(src='js/facedetection/face.js')
