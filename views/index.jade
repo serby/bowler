@@ -1,31 +1,40 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  blockquote= info
-  div.cam
-    h2 Bowler Cam
-    div.cam-view
-      img#cam(src='/images/cam.jpeg', width='544', height='288')
-      img.bowler(src='/images/bowler.png',width='300',height='203',style='display:none;')
-  div.led
-    h2 These flashing LEDs, what's that all about?
-    p 2 flashes followed by 60 seconds of load average
-    p 3 flashes followed by 60 seconds of twitter followers of @nodebowler
-    p Chaser new twitter follower
-  div.spec
-    h2 What's in the Bowler?
-    ul
-      li
-        a(href='http://www.maplin.co.uk/5mm-rounded-panel-indicator-leds-and-bezels-35952') 6 x Panel Indicator LEDs
-      li
-        a(href='http://raspberrypi.rsdelivers.com/default.aspx?cl=1') 1 x Raspberry Pi Type B Single Board Computer
-      li Raspbian “wheezy”
-      li node.js 0.6.19
 
-  div.twitter
-    h2 Twitter
-    p @nodebowler
+  section.cam
+    .container
+      h1 Bowler Cam
+      div.cam-view
+        img#cam(src='/images/cam.jpeg', width='544', height='288')
+        img.bowler(src='/images/bowler.png', width='300', height='203', style='display:none;')
 
-  a(href='/light-show') Trigger LEDs
+      p.attribution Brought to you by 
+        a.logo-clock(href='http://clock.co.uk') Clock.
+
+
+
+
+  section.unsorted
+    .container
+      blockquote= info
+      div.led
+        h2 These flashing LEDs, what's that all about?
+        p 2 flashes followed by 60 seconds of load average
+        p 3 flashes followed by 60 seconds of twitter followers of @nodebowler
+        p Chaser new twitter follower
+      div.spec
+        h2 What's in the Bowler?
+        ul
+          li
+            a(href='http://www.maplin.co.uk/5mm-rounded-panel-indicator-leds-and-bezels-35952') 6 x Panel Indicator LEDs
+          li
+            a(href='http://raspberrypi.rsdelivers.com/default.aspx?cl=1') 1 x Raspberry Pi Type B Single Board Computer
+          li Raspbian “wheezy”
+          li node.js 0.6.19
+
+      div.twitter
+        h2 Twitter
+        p @nodebowler
+
+      a(href='/light-show') Trigger LEDs
