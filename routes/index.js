@@ -7,7 +7,9 @@ module.exports = function (req, res) {
       platform: process.platform,
       memoryUsage: process.memoryUsage(),
       uptime: process.uptime(),
-      loadAvg: os.loadavg()
+      loadAvg: os.loadavg(),
+      versions: process.versions
     };
-  res.render('index', { title: 'Bowler', info: JSON.stringify(info) });
+  res.render('index',
+    { title: 'Node Bowler - The ultimate in wearable computing', info: info });
 };
