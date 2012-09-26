@@ -6,3 +6,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+.cam-view {
+  position: relative;
+}
+
+.bowler {
+  display: none;
+  position: absolute;
+}

@@ -6,7 +6,9 @@ block content
   blockquote= info
   div.cam
     h2 Bowler Cam
-    img#cam(src='/images/cam.jpeg',width='544',height='288')
+    div.cam-view
+      img#cam(src='/images/cam.jpeg', width='544', height='288')
+      img.bowler(src='/images/bowler.png',width='300',height='203',style='display:none;')
   div.led
     h2 These flashing LEDs, what's that all about?
     p 2 flashes followed by 60 seconds of load average
