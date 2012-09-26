@@ -28,7 +28,7 @@ $(function() {
     }
 
     function getBowler() {
-      var $b = $bowlers.pop();
+      var $b = $bowlers.shift();
       if (!$b) {
         $b = $bowler.clone().appendTo('.cam-view');
       }
