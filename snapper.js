@@ -1,6 +1,7 @@
 var exec = require('child_process').exec
+	, fs = require('fs')
   , child
-	, ready = false
+	, ready = true
 	;
 
 function snap() {
@@ -10,7 +11,7 @@ function snap() {
 	ready = false;
 	child = exec('streamer -c /dev/video0 -s 544x288 -b 16 -o ' + __dirname + '/public/images/cam.jpeg', function (error, stdout, stderr) {
 		ready = true;
-		console.log('Snap', error, stdout, stderr);  
+		console.log(new Date(), 'Snap', error, stdout, stderr);
 	});
 }
 
