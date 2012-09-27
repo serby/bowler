@@ -1,53 +1,27 @@
-var assert = require('assert');
+var assert = require('assert')
+  , lightSwitch = require('./light-switch')(require('./mock-simple-gpio')());
 
-function createMockGpio() {
-  var gpios = {};
-  return {
-    export: function(number, option) {
+lightSwitch.on(0);
+assert(lightSwitch.isOn(0));
+assert.equal(lightSwitch.currentState(), '100000');
+lightSwitch.off(0);
+assert.equal(lightSwitch.currentState(), '000000');
 
-      gpios[number] = {
-        direction: option.direction || 'out',
-        on: false
-      };
-      process.nextTick(option.ready);
-      return {
-        set: function(value) {
-          gpios[number].on = (value === undefined || value === 1);
-        },
-        reset: function() {
-          gpios[number].on = false;
-        },
-        unexport: function(callback) {
-          if (callback) {
-            callback();
-          }
-        }
-      };
-    }
-  };
-}
+lightSwitch.bar(0.5);
+assert.equal(lightSwitch.currentState(), '111000');
+lightSwitch.bar(0);
+assert.equal(lightSwitch.currentState(), '000000');
+lightSwitch.bar(1);
+assert.equal(lightSwitch.currentState(), '111111');
 
-require('../light-switch')(createMockGpio(), function(lightSwitch) {
+lightSwitch.progress(0);
+assert.equal(lightSwitch.currentState(), '100000');
+lightSwitch.progress(0.16);
+assert.equal(lightSwitch.currentState(), '010000');
+lightSwitch.progress(0.5);
+assert.equal(lightSwitch.currentState(), '000100');
+lightSwitch.progress(1);
+assert.equal(lightSwitch.currentState(), '000001');
 
-  lightSwitch.on(0);
-  assert(lightSwitch.isOn(0));
-  assert.equal(lightSwitch.currentState(), '100000');
-  lightSwitch.off(0);
-  assert.equal(lightSwitch.currentState(), '000000');
-
-  lightSwitch.bar(0.5);
-  assert.equal(lightSwitch.currentState(), '111000');
-  lightSwitch.bar(0);
-  assert.equal(lightSwitch.currentState(), '000000');
-  lightSwitch.bar(1);
-  assert.equal(lightSwitch.currentState(), '111111');
-
-  lightSwitch.progress(0);
-  assert.equal(lightSwitch.currentState(), '100000');
-  lightSwitch.progress(0.16);
-  assert.equal(lightSwitch.currentState(), '010000');
-  lightSwitch.progress(0.5);
-  assert.equal(lightSwitch.currentState(), '000100');
-  lightSwitch.progress(1);
-  assert.equal(lightSwitch.currentState(), '000001');
-});
+lightSwitch.binary(1);
+assert.equal(lightSwitch.currentState(), '000001');

@@ -17,7 +17,9 @@ if (app.get('env') === 'development') {
   lightSwitch = createLightSwitch();
 }
 
-jarre.add(require('./light-show')(lightSwitch));
+jarre.add(require('./instruments/light-show')(lightSwitch));
+jarre.add(require('./instruments/load-display')(lightSwitch));
+jarre.add(require('./instruments/twitter-count')(lightSwitch));
 
 app.configure(function() {
 
@@ -43,8 +45,10 @@ app.get('/light-show', function (req, res) {
 
   try {
 
-    jarre.pickup('lightShow').start(jarre.drop);
-    res.redirect('/');
+    jarre.pickup('lightShow', function(error, instrument) {
+      instrument.start(jarre.drop);
+      res.redirect('/');
+    });
 
   } catch (e) {
     res.send('Light show already running');

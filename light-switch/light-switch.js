@@ -23,7 +23,7 @@ module.exports = function lightSwitch(simpleGpio) {
       return bar(1);
     }
     validate(n);
-    simpleGpio.set(led[n], 1);
+    simpleGpio.set(led[n].gpio, 1);
     led[n].on = true;
     return self;
   }
@@ -33,7 +33,7 @@ module.exports = function lightSwitch(simpleGpio) {
       return bar(0);
     }
     validate(n);
-    simpleGpio.set(led[n], 0);
+    simpleGpio.set(led[n].gpio, 0);
     led[n].on = false;
     return self;
   }
@@ -50,6 +50,16 @@ module.exports = function lightSwitch(simpleGpio) {
         on(i);
       } else {
         off(i);
+      }
+    }
+  }
+
+  function binary(value) {
+    off();
+    for (var i = 0; i < ledCount; i++) {
+      var binaryValue = Math.pow(2, i);
+      if (value & binaryValue === value) {
+        on(ledCount - 1 - i);
       }
     }
   }
@@ -74,11 +84,12 @@ module.exports = function lightSwitch(simpleGpio) {
   self.isOn = isOn;
   self.currentState = currentState;
   self.length = ledCount;
+  self.binary = binary;
 
   // Init the GPIO and return the light switch
   gpioPorts.forEach(function(gpioNumber) {
     simpleGpio.export(gpioNumber);
-    led[ledNumber] = gpioNumber;
+    led[ledNumber] = { gpio: gpioNumber, on: false };
 
     // Ensure they are all off
     simpleGpio.setDirection(gpioNumber, 'out');

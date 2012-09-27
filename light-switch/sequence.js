@@ -51,30 +51,31 @@ module.exports = function (lightSwitch) {
       }, durationPerLed);
   }
 
-  function flash(options, callback) {
+  function flash(interval) {
+    var timer = startInterval(interval || 100)
+      , on = false
+      ;
+    function addFlash() {
 
-   if (typeof options === 'function') {
-     callback = options;
-     options = {};
-   }
-   callback = callback || noop;
-   options = _.extend({
-     duration: 200,
-     count: 10
-     },
-     options);
-
-    var state = true
-      , count = 0
-      , t = setInterval(function() {
-        lightSwitch.bar(state ? 1 : 0);
-        state = !state;
-        count++;
-        if (count === options.count * 2) {
-          clearInterval(t);
-          callback();
+      timer.add(function() {
+        if (on) {
+          lightSwitch.on();
+        } else {
+          lightSwitch.off();
         }
-      }, options.duration);
+        on = !on;
+      });
+
+      timer.add(addFlash);
+    }
+    addFlash();
+    return {
+      stop: function() {
+        on = false;
+        timer.add(lightSwitch.off);
+        timer.add(timer.stop);
+      }
+    };
   }
 
   function chase() {
