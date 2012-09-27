@@ -12,18 +12,16 @@ block content
       p.attribution Brought to you by 
         a.logo-clock(href='http://clock.co.uk') Clock.
 
-
-
-
-  section.unsorted
+  section.info
     .container
-      blockquote= info
-      div.led
+      .col-left
         h2 These flashing LEDs, what's that all about?
         p 2 flashes followed by 60 seconds of load average
         p 3 flashes followed by 60 seconds of twitter followers of @nodebowler
         p Chaser new twitter follower
-      div.spec
+        a.button(href='/light-show'): span Trigger LEDs
+
+      .col-right
         h2 What's in the Bowler?
         ul
           li
@@ -33,8 +31,12 @@ block content
           li Raspbian “wheezy”
           li node.js 0.6.19
 
+
+  section.unsorted
+    .container
+      blockquote= info
+      div.spec
+
       div.twitter
         h2 Twitter
         p @nodebowler
-
-      a(href='/light-show') Trigger LEDs

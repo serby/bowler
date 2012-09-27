@@ -248,6 +248,7 @@ blockquote p {
   position: relative;
   padding: 20px;
   margin: 0 auto;
+  overflow: hidden;
 }
 header {
   text-align: center;
@@ -384,10 +385,49 @@ p.attribution a {
   white-space: nowrap;
   overflow: hidden;
 }
-.unsorted {
+.info {
+  padding-top: 20px;
   background-image: url("/images/separator-bg.gif");
   background-repeat: repeat-x;
   background-position: 50% 0;
+}
+[class*="col-"] {
+  float: left;
+}
+.col-left {
+  width: 45%;
+  margin-right: 5%;
+}
+.col-right {
+  width: 45%;
+  margin-left: 5%;
+}
+.button {
+  display: inline-block;
+  position: relative;
+  border-radius: 3px;
+  background-color: #7a3b32;
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+}
+.button span {
+  position: relative;
+  top: -3px;
+  display: inline-block;
+  background-color: #994a3f;
+  color: #fff;
+  border-radius: 3px;
+  border: 1px solid #6b342c;
+  padding: 5px 15px;
+  text-transform: uppercase;
+  box-shadow: 0px 1px 1px rgba(255,255,255,0.4) inset;
+}
+.button:hover span,
+.button:focus span {
+  top: -4px;
+  color: #fff;
+}
+.button:active span {
+  top: 0px;
 }
 .cam-view {
   position: relative;
