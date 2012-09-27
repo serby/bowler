@@ -1,10 +1,44 @@
 doctype 5
 html
   head
-    title=title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    title= title
+
+    // CSS
+    link(href='http://fonts.googleapis.com/css?family=Lato:300,400', rel='stylesheet')
+    link(rel='stylesheet', href='/css/style.css')
+
+
+    //-meta(name='viewport', content='initial-scale=1.0, maximum-scale=1.0, user-scalable=0')
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='apple-mobile-web-app-status-bar-style', content='black')
+    link(rel='apple-touch-icon-precomposed', href='/images/apple-touch-icon-precomposed.png')
+    link(rel='apple-touch-startup-image', href='/images/apple-startup-640x920.png', sizes='640x920')
+    link(rel='apple-touch-startup-image', media='(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)', href='/images/apple-startup-640x1096.png')
+
+    link(rel='icon', href='/images/favicon.ico')
+
   body
+
+    header
+      .container
+        hgroup
+          h1
+            a(href='/')= title
+          p The Splendid Interactive Hat
+        nav
+          ul
+            li.nav-node: a(href='http://nodejs.org/') Node.js
+            li.nav-raspberry: a(href='http://www.raspberrypi.org/') Raspberry Pi
+            li.nav-lxjs: a(href='http://2012.lxjs.org/') LXJS
+
     block content
+
+    footer
+      .container
+        nav
+          ul
+            li.nav-twitter: a(href='http://twitter.com/nodebowler') @nodebowler
+            li.nav-github: a(href='https://github.com/serby/bowler') GitHub
 
   block script
     script(src='//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js')
