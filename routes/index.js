@@ -11,5 +11,5 @@ module.exports = function (req, res) {
       versions: process.versions
     };
   res.render('index',
-    { title: 'Node Bowler - The ultimate in wearable computing', info: info });
+    { title: 'Bowler - THE SPLENDID INTERACTIVE HAT', info: info });
 };
