@@ -250,6 +250,17 @@ blockquote p {
   margin: 0 auto;
   overflow: hidden;
 }
+li[class*="nav-"] {
+  position: absolute;
+}
+li[class*="nav-"] a {
+  background-image: url("/images/logo-sprite.png");
+  background-repeat: no-repeat;
+  display: block;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
 header {
   text-align: center;
   background-image: url("/images/separator-bg.gif");
@@ -295,17 +306,6 @@ header nav {
   top: 20px;
   left: 20px;
   right: 20px;
-}
-header li[class*="nav-"] {
-  position: absolute;
-}
-header li[class*="nav-"] a {
-  background-image: url("/images/logo-sprite.png");
-  background-repeat: no-repeat;
-  display: block;
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
 }
 header .nav-node {
   left: 0;
@@ -390,6 +390,40 @@ p.attribution a {
   background-image: url("/images/separator-bg.gif");
   background-repeat: repeat-x;
   background-position: 50% 0;
+  margin-bottom: 40px;
+}
+.info h1 {
+  color: #363a4b;
+  display: inline-block;
+  border-bottom: 1px solid #363a4b;
+}
+.info dl {
+  width: 500px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.info dl div {
+  display: inline-block;
+  text-align: center;
+}
+.info dl div:first-child {
+  margin-right: 60px;
+}
+.info dl dt {
+  text-transform: uppercase;
+}
+.info dl dd {
+  font-size: 50px;
+  margin: 0;
+  padding: 0;
+}
+.info .social {
+  position: relative;
+}
+.row {
+  border-bottom: 1px solid #c9c5bc;
+  overflow: hidden;
+  margin-bottom: 25px;
 }
 [class*="col-"] {
   float: left;
@@ -401,6 +435,13 @@ p.attribution a {
 .col-right {
   width: 45%;
   margin-left: 5%;
+}
+.col-middle {
+  float: none;
+  text-align: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .button {
   display: inline-block;
@@ -428,6 +469,33 @@ p.attribution a {
 }
 .button:active span {
   top: 0px;
+}
+.social .content {
+  padding-right: 200px;
+}
+.nav-github {
+  right: 0;
+  top: 5px;
+}
+.nav-github a {
+  width: 93px;
+  height: 42px;
+  background-position: -295px 0;
+}
+.nav-github a:hover {
+  background-position: -295px -44px;
+}
+.nav-twitter {
+  right: 113px;
+  top: 5px;
+}
+.nav-twitter a {
+  width: 51px;
+  height: 42px;
+  background-position: -242px 0;
+}
+.nav-twitter a:hover {
+  background-position: -242px -44px;
 }
 .cam-view {
   position: relative;
