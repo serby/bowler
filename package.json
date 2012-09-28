@@ -9,6 +9,9 @@
   "dependencies": {
     "lodash": "*",
     "express": "3.0.0rc4",
-    "jade": "*"
+    "http-proxy": "*",
+    "jade": "*",
+    "twitter": "*",
+    "request": "*"
   }
 }
