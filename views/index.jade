@@ -45,7 +45,7 @@ block content
               dd=info.loadAvg[0].toPrecision(3)
               dt Load Average
             div
-              dd=(info.uptime/60).toPrecision(2) + 'mins'
+              dd=Math.round(info.uptime / 60) + 'mins'
               dt Uptime
 
 
