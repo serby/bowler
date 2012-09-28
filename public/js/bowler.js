@@ -20,6 +20,7 @@ $(function() {
     image.onload = function() {
       $cam.replaceWith(image);
       $cam = $('#cam');
+      addBowlers();
     };
 
     image.id = 'cam';
@@ -27,7 +28,7 @@ $(function() {
 
     setTimeout(function() {
       reloadImage();
-    }, 500);
+    }, 1000);
   }
 
   function addBowlers() {
