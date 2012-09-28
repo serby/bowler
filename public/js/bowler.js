@@ -14,10 +14,20 @@ $(function() {
   });
 
   function reloadImage() {
-    $cam.attr('src', '/images/cam.jpeg');
+
+    var image = new Image();
+
+    image.onload = function() {
+      $cam.replaceWith(image);
+      $cam = $('#cam');
+    };
+
+    image.id = 'cam';
+    image.src = '/images/cam.jpeg';
+
     setTimeout(function() {
       reloadImage();
-    }, 1500);
+    }, 500);
   }
 
   function addBowlers() {
