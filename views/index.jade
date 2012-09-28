@@ -42,12 +42,11 @@ block content
           h1 Bowler Stats
           dl
             div
-              dd=info.loadAvg[0].toPrecision(3)
+              dd=info.loadAvg[0].toFixed(3)
               dt Load Average
             div
               dd=Math.round(info.uptime / 60) + 'mins'
               dt Uptime
-
 
       div.social
         .content
