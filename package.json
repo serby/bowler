@@ -12,6 +12,7 @@
     "express": "3.0.0rc4",
     "jade": "*",
     "twitter": "*",
-    "request": "*"
+    "request": "*",
+    "os-utils": "*"
   }
 }

@@ -1,11 +1,13 @@
-var os = require('os');
+var os = require('os-utils')
+  ;
 
 module.exports = function (ligthSwitch) {
   var t;
 
   function showLoad() {
-    var load = 0.1 + (os.loadavg()[0] / os.cpus().length);
-    ligthSwitch.bar(load);
+    os.cpuUsage(function(usage) {
+      ligthSwitch.bar(usage);
+    });
   }
 
   return {
@@ -26,7 +28,7 @@ module.exports = function (ligthSwitch) {
           clearInterval(t);
           t = setInterval(showLoad, 500);
         }
-      }, 500);
+      }, 1000);
     },
     stop: function(callback) {
       clearInterval(t);
