@@ -4,12 +4,13 @@ module.exports = function (ligthSwitch) {
   var t;
 
   function showLoad() {
-    ligthSwitch.bar(0.1 + (os.loadavg()[0]));
+    var load = 0.1 + (os.loadavg()[0] / os.cpus().length);
+    ligthSwitch.bar(load);
   }
 
   return {
     name: 'load-display',
-    start: function() {
+    start: function(callback) {
       var count = 4;
       t = setInterval(function() {
         if (count > 0) {

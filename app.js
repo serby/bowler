@@ -42,7 +42,7 @@ app.configure('development', function(){
 
 app.get('/', require('./routes/index'));
 
-app.get('/light-show', function (req, res) {
+app.get('/leds/show', function (req, res) {
 
   try {
 
@@ -53,6 +53,25 @@ app.get('/light-show', function (req, res) {
 
   } catch (e) {
     res.send('Light show already running');
+    res.end();
+  }
+
+});
+
+app.get('/leds/load', function (req, res) {
+
+  try {
+
+    jarre.pickup('load-display', function(error, instrument) {
+      instrument.start(jarre.drop);
+      setTimeout(function() {
+        instrument.stop(jarre.drop);
+      }, 10000);
+      res.redirect('/');
+    });
+
+  } catch (e) {
+    res.send('load-display already running');
     res.end();
   }
 
