@@ -28,7 +28,7 @@ $(function() {
 
     setTimeout(function() {
       reloadImage();
-    }, 1000);
+    }, 2000);
   }
 
   function addBowlers() {

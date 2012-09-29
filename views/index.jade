@@ -14,16 +14,23 @@ block content
 
   section.info
     .container
+      .row
+        .col-middle
+          h1 Bowler Stats
+          dl
+            div
+              dd=info.loadAvg[0].toFixed(3)
+              dt Load Average
+            div
+              dd=Math.round(info.uptime / 60) + 'mins'
+              dt Uptime
+      
+      .row
+        div.photo
+          img(src='/images/bowler-photo.png')
 
       .row
         .col-left
-          h2 What's with the flashing LEDs?
-          p Two flashes followed by 60 seconds of load average
-          p Three flashes followed by 60 seconds of twitter followers in binary 
-           a(href='http://twitter.com/nodebowler') @nodebowler
-          p Chaser = new twitter follower
-
-        .col-right
           h2 What's in the Bowler?
           ul
             li
@@ -37,17 +44,14 @@ block content
             li
               a(href='http://www.raspbian.org/') Raspbian “wheezy”
             li
-              a(href='http://nodejs.org/') node.js 0.6.19
-      .row
-        .col-middle
-          h1 Bowler Stats
-          dl
-            div
-              dd=info.loadAvg[0].toFixed(3)
-              dt Load Average
-            div
-              dd=Math.round(info.uptime / 60) + 'mins'
-              dt Uptime
+              a(href='http://nodejs.org/') node.js 0.6.19          
+
+        .col-right
+          h2 What's with the flashing LEDs?
+          p Two flashes followed by 60 seconds of load average
+          p Three flashes followed by 60 seconds of twitter followers in binary 
+           a(href='http://twitter.com/nodebowler') @nodebowler
+          p Chaser = new twitter follower
 
       div.social
         .content
