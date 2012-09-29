@@ -4,11 +4,7 @@ module.exports = function (ligthSwitch) {
   var t;
 
   function showLoad() {
-    ligthSwitch.bar(0.1 + (os.loadavg()[0] / 100));
-  }
-
-  function flash() {
-
+    ligthSwitch.bar(0.1 + (os.loadavg()[0]));
   }
 
   return {
