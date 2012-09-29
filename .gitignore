@@ -1,13 +1,6 @@
 # Node.js with Express and Stlyus
 public/css/*.css
-public/css/main/*.css
-public/css/admin/*.css
-/.monitor
-
-# Eclipse
-/.project
-/.settings
-/.buildpath
+public/images/cam*.jpeg
 
 # Sublime
 *.sublime-project
@@ -15,9 +8,6 @@ public/css/admin/*.css
 
 # Windows
 Thumbs.db
-
-# Ignore this in Clock Harness projects because it is created by the build system.
-/Config/vhost.conf
 
 # Vim
 .*.sw[a-z]
@@ -33,10 +23,3 @@ Icon?
 
 # nodejs npm modules
 /node_modules
-
-# node-cluster
-/pids
-*.sock
-
-# ZSH Cake plugin cache
-/.cake_task_cache
