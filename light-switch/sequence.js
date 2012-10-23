@@ -78,10 +78,6 @@ module.exports = function (lightSwitch) {
     };
   }
 
-  function chase() {
-
-  }
-
   function morse (message) {
     var code = morse.decode(message);
 
