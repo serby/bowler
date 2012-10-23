@@ -12,7 +12,7 @@ module.exports = function simpleGpio() {
       return false;
     } else {
       console.info('Exporting gpio' + n);
-      return fs.writeFileSync(path.join(gpiopath, 'export'), n);
+      return fs.writeFile(path.join(gpiopath, 'export'), n);
     }
   }
 
@@ -23,18 +23,18 @@ module.exports = function simpleGpio() {
       return false;
     } else {
       console.info('Unexporting gpio' + n);
-      return fs.writeFileSync(path.join(gpiopath, 'unexport'), n);
+      return fs.writeFile(path.join(gpiopath, 'unexport'), n);
     }
   }
 
   function setDirection(n, direction) {
     console.info('Set direction', n, direction);
-    return fs.writeFileSync(path.join(gpiopath, 'gpio' + n + '/direction'), direction);
+    return fs.writeFile(path.join(gpiopath, 'gpio' + n + '/direction'), direction);
   }
 
   function set(n, value) {
     console.info(Date.now(), 'Set value', n, value);
-    return fs.writeFileSync(path.join(gpiopath, 'gpio' + n + '/value'), value);
+    return fs.writeFile(path.join(gpiopath, 'gpio' + n + '/value'), value);
   }
 
   return {
