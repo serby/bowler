@@ -57,8 +57,8 @@ module.exports = function lightSwitch(simpleGpio) {
   function binary(value) {
     off();
     for (var i = 0; i < ledCount; i++) {
-      var binaryValue = Math.pow(2, i);
-      if (value & binaryValue === value) {
+      var x = Math.pow(2, i);
+      if ((value & x) === x) {
         on(ledCount - 1 - i);
       }
     }
